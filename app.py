@@ -9,6 +9,9 @@ from pyspark.sql import SparkSession
 from search import process_query_image, perform_search
 from clustering import train_and_assign_clusters
 
+os.environ["PYSPARK_PYTHON"] = "python"
+os.environ["PYSPARK_DRIVER_PYTHON"] = "python"
+
 @st.cache_resource
 def initialize_pipeline_in_memory():
     # 🛑 Windows Hadoop Fix: Bypassing Parquet IO entirely by engaging ML components directly into localized caching!

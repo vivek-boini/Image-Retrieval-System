@@ -3,6 +3,9 @@ from pyspark.sql.functions import udf
 from pyspark.sql.types import ArrayType, DoubleType
 from clustering import train_and_assign_clusters
 
+os.environ["PYSPARK_PYTHON"] = "python"
+os.environ["PYSPARK_DRIVER_PYTHON"] = "python"
+
 def main():
     dataset_dir = "dataset"
     if not os.path.exists(dataset_dir):
